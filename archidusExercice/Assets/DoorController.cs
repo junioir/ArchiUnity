@@ -4,22 +4,31 @@ public class DoorController : MonoBehaviour
 {
     private Animator animator;
 
-    private void Start()
+    void Update()
     {
         animator = GetComponent<Animator>();
+        DoorEventManager.OnDoorUnlocked += UnlockDoor;
+        DoorEventManager.OnDoorOpened += ToggleDoor;
+       // DoorEventManager.OnDoorclosed += CloseDoor;
     }
 
-    public void ToggleDoor()
+    void UnlockDoor()
     {
-        if (animator.GetBool("Open"))
-        {
-            animator.SetBool("Open", false); // Ferme la porte
-            Debug.Log("La porte est fermée.");
-        }
-        else
-        {
-            animator.SetBool("Open", true); // Ouvre la porte
-            Debug.Log("La porte est ouverte.");
-        }
+        Debug.Log("La porte est déverrouillée !");
+    }
+
+    void ToggleDoor(bool value)
+    {
+        // animator.SetTrigger("Open");
+        animator.SetBool("Open",value);
+    }
+
+   
+
+    private void OnDestroy()
+    {
+        DoorEventManager.OnDoorUnlocked -= UnlockDoor;
+        DoorEventManager.OnDoorOpened -= ToggleDoor;
+       // DoorEventManager.OnDoorclosed -= CloseDoor;
     }
 }
