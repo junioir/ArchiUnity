@@ -6,7 +6,6 @@ using UnityEngine;
 public class Bull : Animal,Iwork,IShowName
 {
     
-
     public void Isworking()
     {
         Debug.Log("Work");
