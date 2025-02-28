@@ -15,4 +15,4 @@ MonoBehaviour:
   _sprite: {fileID: 1982254769, guid: 317c01d7caa49224c9b3a078c00486a6, type: 3}
   _hitPoint: 10
   _damage: 1
-  _position: {x: 0, y: 0, z: 0}
+  _position: {x: 26.604477, y: 111.40344, z: 0}
